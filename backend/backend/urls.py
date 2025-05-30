@@ -22,8 +22,7 @@ from .views import index
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', index), # Default view
-    path('songAPI/', include('songs.urls'))
+    path('', index), # Default view  
 ]
 
 # if settings.DEBUG:

@@ -43,7 +43,6 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'corsheaders',
     'rest_framework',
-    'songs'
 ]
 
 CORS_ORIGIN_WHITELIST = [
