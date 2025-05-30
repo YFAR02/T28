@@ -1,5 +1,4 @@
 import subprocess
-import sys
 import os
 
 def check_command(command):
@@ -13,6 +12,21 @@ def check_command(command):
         return False
 
 try:
+    # Check if Docker Desktop is running 
+    if check_command(['docker', 'version']) == False:
+        # Try to start Docker desktop
+        print('Starting Docker Desktop...')
+        try:
+            if os.name == 'posix':
+                subprocess.run(['open', '-a', 'Docker'])
+            else:
+                subprocess.run(['powershell', '-Command', 'Start-Process', '"C:\\Program Files\\Docker\\Docker\\Docker Desktop.exe"'])
+        except:
+            print("\033[91mError starting Docker Desktop.\033[0m")
+            print("\033[93mPlease start Docker Desktop manually.\033[0m")
+            os._exit(1)
+            raise KeyboardInterrupt # just in case
+
     # First check if node modules are installed
     if not os.path.exists('frontend/node_modules'):
         os.makedirs('frontend/node_modules')
@@ -38,6 +52,19 @@ try:
         subprocess.run(['npm', 'install'], cwd='frontend', shell=True)
 
     print('\033[92mNode modules installed.\033[0m')
+
+    print('\033[93mDeleting migrations...\033[0m')
+    try:
+        if os.name == 'posix':
+            subprocess.run(['rm', '-rf', 'backend/songs/migrations'])
+            subprocess.run(['rm', '-rf', 'backend/playlists/migrations'])
+        else:
+            subprocess.run(['rmdir', '/s', '/q', 'backend\\songs\\migrations'], shell=True)
+            subprocess.run(['rmdir', '/s', '/q', 'backend\\playlists\\migrations'], shell=True)
+        print('\033[92mMigrations deleted.\033[0m')
+    except:
+        print("\033[91mError deleting migrations.\033[0m")
+
     print('Starting app with\033[94m docker-compose\033[0m...')
 
     if check_command(['docker-compose', 'version']):

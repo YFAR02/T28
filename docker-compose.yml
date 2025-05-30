@@ -5,10 +5,12 @@ services:
     ports:
       - "3000:3000"
     volumes:
-      - ./frontend:/frontend
+      - ./frontend/:/frontend
       - /frontend/node_modules
     depends_on:
       - backend
+    env_file:
+      - .env
 
   backend:
     build:
@@ -61,3 +63,4 @@ services:
 volumes:
   postgres_data:
   ollama_data:
+
