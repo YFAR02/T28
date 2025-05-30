@@ -1,0 +1,20 @@
+# Editor directories and files
+.vscode/*
+!.vscode/extensions.json
+.idea
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+package-lock.json
+
+# All env files
+.env
+.env.*
+staticfiles/
+db.sqlite3
+
+# Any pycache
+__pycache__
