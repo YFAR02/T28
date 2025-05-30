@@ -1,10 +1,7 @@
 import React from 'react'
 import { useState, useEffect } from 'react'
 
-// interface HomeProps {
-//   currentDate: number
-//   currentTime: number
-// }
+
 
 // const Home: React.FC<HomeProps> = ({ currentDate, currentTime }) => {
 const Home: React.FC = () => {
@@ -38,6 +35,8 @@ const Home: React.FC = () => {
         <div>
             <h2>Home Page</h2>
             <p>The date is {currentDate} and the time is {currentTime}.</p>
+                <button onClick={() => window.location.href = '/register'}>Register</button>
+
         </div>
     )
 }
