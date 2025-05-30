@@ -50,5 +50,17 @@ services:
     env_file:
       - .env
 
+  ollama:
+    image: ollama/ollama:latest
+    ports:
+      - "11434:11434"
+    volumes:
+      - ollama_data:/ollama/data
+
+    command: ["ollama", "run", "llava:7b"]
+  
+
 volumes:
   postgres_data:
+  ollama_data:
+
