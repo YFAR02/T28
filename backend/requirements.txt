@@ -4,7 +4,9 @@ django-cors-headers
 python-dotenv
 psycopg2-binary
 google-genai
-django-oauth-toolkit 
+django-oauth-toolkit
+django-rest-passwordreset
+
 
 
 #djangorestframework-simplejwt
