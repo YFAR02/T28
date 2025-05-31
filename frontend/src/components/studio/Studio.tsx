@@ -13,7 +13,7 @@ const Studio: React.FC = () => {
         <div className="studio-card">
           <p className="studio-question">WHAT IS A TOKEN?</p>
         </div>
-        <button className="studio-flashcards-btn">VIEW FLASHCARDS</button>
+        <a href="/flashcard" className="studio-flashcards-btn">VIEW FLASHCARDS</a>
         <div className="studio-questions-section">
           <span className="studio-questions-label">NUMBER OF QUESTIONS</span>
           <div className="studio-questions-toggle">
@@ -31,7 +31,15 @@ const Studio: React.FC = () => {
             </button>
           </div>
         </div>
-        <button className="studio-exam-btn">PRACTICE EXAM</button>
+        <button
+          className="studio-exam-btn"
+          onClick={() => {
+            // Example: navigate to exam page with selected number of questions
+            window.location.href = `/exam?numQuestions=${numQuestions}`;
+          }}
+        >
+          PRACTICE EXAM
+        </button>
       </div>
     </div>
   );

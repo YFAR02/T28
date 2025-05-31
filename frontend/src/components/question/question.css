@@ -1,0 +1,57 @@
+@import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
+
+.question-card {
+  margin-bottom: 40px;
+  background-color: transparent;
+  font-family: 'VT323', monospace;
+  color: white;
+  text-align: left;
+}
+
+.question-label {
+  background-color: #f06c9b;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: bold;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+  cursor: default;
+}
+
+.question-text {
+  font-size: 20px;
+  font-weight: bold;
+  margin: 16px 0 16px 0;
+}
+
+.choice-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.choice {
+  font-size: 18px;
+  padding: 8px 0;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding-left: 20px;
+  position: relative;
+}
+
+.choice::before {
+  content: "•";
+  color: white;
+  font-size: 18px;
+  position: absolute;
+  left: 0;
+}
+
+.correct {
+  font-weight: bold;
+  color: #f06c9b;
+}
