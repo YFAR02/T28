@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './Question.css';
+import './question.css';
 
 interface QuestionProps {
   index: number;

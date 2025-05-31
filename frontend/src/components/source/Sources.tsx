@@ -1,9 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import './Sources.css';
+import FileUploadModal from '../FileUploadModal';
 
-const Sources: React.FC = () => {
+interface SourcesProps {
+  onFileSelect: (filePath: string | null) => void;
+}
+
+const Sources: React.FC<SourcesProps> = ({ onFileSelect }) => {
   const [sources, setSources] = useState<string[]>([]);
-  const [selected, setSelected] = useState<boolean[]>([]);
+  const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
+  const [modalOpen, setModalOpen] = useState(false);
 
   useEffect(() => {
     const fetchSources = async () => {
@@ -15,44 +21,39 @@ const Sources: React.FC = () => {
       });
       if (response.ok) {
         const data = await response.json();
-        // Assuming each file object has a 'filename' property
         setSources(data.map((file: any) => file.filename));
-        setSelected(Array(data.length).fill(false));
       }
     };
     fetchSources();
   }, []);
 
-  const toggleAll = () => {
-    const allSelected = selected.every(Boolean);
-    setSelected(Array(sources.length).fill(!allSelected));
-  };
-
-  const toggleOne = (index: number) => {
-    setSelected(prev => prev.map((val, i) => (i === index ? !val : val)));
+  const handleSelect = (index: number) => {
+    setSelectedIndex(index);
+    onFileSelect(index !== null ? sources[index] : null);
   };
 
   return (
     <div className="sources-container">
       <div className="sources-header">
         <span className="title">SOURCES</span>
-        <img src="add.png" alt="add icon" className="add-icon" />
+        <img
+          src="add.png"
+          alt="add icon"
+          className="add-icon"
+          onClick={() => setModalOpen(true)}
+          style={{ cursor: 'pointer' }}
+        />
       </div>
-
-      <div className="sources-select-all">
-        <span>SELECT ALL SOURCES</span>
-        <input type="checkbox" checked={selected.every(Boolean)} onChange={toggleAll} />
-      </div>
-
+      <FileUploadModal open={modalOpen} onClose={() => setModalOpen(false)} />
       <div className="sources-list">
         {sources.map((source, index) => (
           <div className="source-item" key={index}>
             <img src="source.png" alt="File Icon" className="file-icon" />
             <span className="filename">{source}</span>
             <input
-              type="checkbox"
-              checked={selected[index]}
-              onChange={() => toggleOne(index)}
+              type="radio"
+              checked={selectedIndex === index}
+              onChange={() => handleSelect(index)}
             />
           </div>
         ))}

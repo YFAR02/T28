@@ -11,6 +11,7 @@ from .serializers import NoteSerializer
 import os
 from google import genai
 from dotenv import load_dotenv
+from django.conf import settings
 
 load_dotenv()
 
@@ -65,10 +66,17 @@ class ChatViewFlashcards(APIView):
     permission_classes = [IsAuthenticated]
 
     def post(self, request, *args, **kwargs):
-        # Accept note content as text or file
         note_content = request.data.get('content')
-        if not note_content and 'file' in request.FILES:
-            note_content = request.FILES['file'].read().decode('utf-8')
+        file_path = request.data.get('file_path')
+        if not note_content and file_path:
+            # Build the full path to the user's file
+            user_folder = f"user_{request.user.id}"
+            full_path = os.path.join(settings.MEDIA_ROOT, user_folder, file_path)
+            try:
+                with open(full_path, 'r', encoding='utf-8') as f:
+                    note_content = f.read()
+            except Exception:
+                return Response({'error': 'Could not read file.'}, status=status.HTTP_400_BAD_REQUEST)
         if not note_content:
             return Response({'error': 'No content provided.'}, status=status.HTTP_400_BAD_REQUEST)
 
@@ -86,9 +94,8 @@ class ChatViewFlashcards(APIView):
             '    // ...repeat for 20 terms\n'
             ']\n'
             '}\n'
-            'The terms should be about the content of the file.\n' \
+            'The terms should be about the content of the file.\n'
             'The return should be a JSON with no other text or explanation.'
-
         )
         response = client.models.generate_content(
             model="gemini-2.0-flash",
@@ -108,10 +115,17 @@ class ChatViewNotes(APIView):
     permission_classes = [IsAuthenticated]
 
     def post(self, request, *args, **kwargs):
-        # Accept note content as text or file
         note_content = request.data.get('content')
-        if not note_content and 'file' in request.FILES:
-            note_content = request.FILES['file'].read().decode('utf-8')
+        file_path = request.data.get('file_path')
+        if not note_content and file_path:
+            # Build the full path to the user's file
+            user_folder = f"user_{request.user.id}"
+            full_path = os.path.join(settings.MEDIA_ROOT, user_folder, file_path)
+            try:
+                with open(full_path, 'r', encoding='utf-8') as f:
+                    note_content = f.read()
+            except Exception:
+                return Response({'error': 'Could not read file.'}, status=status.HTTP_400_BAD_REQUEST)
         if not note_content:
             return Response({'error': 'No content provided.'}, status=status.HTTP_400_BAD_REQUEST)
 

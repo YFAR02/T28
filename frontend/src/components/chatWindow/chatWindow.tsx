@@ -11,7 +11,11 @@ function formatAIText(text: string) {
   }
 }
 
-const ChatWindow: React.FC = () => {
+interface ChatWindowProps {
+  selectedFile: string | null;
+}
+
+const ChatWindow: React.FC<ChatWindowProps> = ({ selectedFile }) => {
   const [messages, setMessages] = useState<{ sender: 'user' | 'ai', text: string }[]>([]);
   const [input, setInput] = useState('');
   const [loading, setLoading] = useState(false);
@@ -24,18 +28,19 @@ const ChatWindow: React.FC = () => {
     setError('');
     try {
       const token = localStorage.getItem('access_token');
-      const payload = { content: input }; // Always send a valid JSON object
-      //console.log("DEBUG: Sending payload to backend:", payload); // Add this line
-      const response = await fetch('http://localhost:8000/core/chat/', {
+      const payload = selectedFile ? { content: input, file_path: selectedFile } : { content: input };
+      const endpoint = selectedFile
+        ? 'http://localhost:8000/core/chatNotes/'
+        : 'http://localhost:8000/core/chat/';
+      const response = await fetch(endpoint, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
           'Authorization': token ? `Bearer ${token}` : '',
         },
-        body: JSON.stringify(payload), // Ensure this is a stringified JSON
+        body: JSON.stringify(payload),
       });
       const data = await response.json();
-      //console.log("DEBUG: Received response from backend:", data); // Log the backend response
       let aiText = '';
       if (typeof data === 'string') {
         aiText = data;

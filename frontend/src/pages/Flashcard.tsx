@@ -1,20 +1,39 @@
-import React, { useState } from 'react';
+import { useLocation } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
 import Card from '../components/card/card';
 import './Flashcard.css';
 import Title from '../components/title/title';
 
 const FlashcardPage: React.FC = () => {
-  const flashcards = [
-    { question: "What is a token?", answer: "A word or part of a word that is used by machine learning to understand and predict" },
-    { question: "What is React?", answer: "A JavaScript library for building user interfaces" },
-    { question: "What is an API?", answer: "A set of functions and protocols that allow applications to access data or interact with external software components" },
-  ];
-
+  const location = useLocation();
+  const selectedFile = location.state?.selectedFile as string | null;
+  const [flashcards, setFlashcards] = useState<{ question: string; answer: string }[]>([]);
   const [currentIndex, setCurrentIndex] = useState(0);
+
+  useEffect(() => {
+    const fetchFlashcards = async () => {
+      if (!selectedFile) return;
+      const token = localStorage.getItem('access_token');
+      const response = await fetch('http://localhost:8000/core/chatFlashcards/', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': token ? `Bearer ${token}` : '',
+        },
+        body: JSON.stringify({ file_path: selectedFile }),
+      });
+      if (response.ok) {
+        const data = await response.json();
+        // Expecting data.flashcards: [{term, definition}]
+        setFlashcards(data.flashcards.map((fc: any) => ({ question: fc.term, answer: fc.definition })));
+      }
+    };
+    fetchFlashcards();
+  }, [selectedFile]);
 
   const handleNext = () => {
     setCurrentIndex((prevIndex) => (prevIndex + 1) % flashcards.length);
-};
+  };
 
   const handlePrevious = () => {
     setCurrentIndex((prevIndex) => (prevIndex - 1 + flashcards.length) % flashcards.length);
@@ -42,7 +61,11 @@ const FlashcardPage: React.FC = () => {
 
       <div className="card-container">
         <button className="arrow left" onClick={handlePrevious}>{'<'}</button>
-        <Card key={currentIndex} question={flashcards[currentIndex].question} answer={flashcards[currentIndex].answer} />
+        {flashcards.length > 0 ? (
+          <Card key={currentIndex} question={flashcards[currentIndex].question} answer={flashcards[currentIndex].answer} />
+        ) : (
+          <div className="no-flashcards">No flashcards loaded.</div>
+        )}
         <button className="arrow right" onClick={handleNext}>{'>'}</button>
       </div>
 
