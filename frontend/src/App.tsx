@@ -6,6 +6,11 @@ import Register from './pages/register.tsx'
 import Login from './components/Navbar/login/login.tsx'
 import Chat from './pages/Chat.tsx'
 import ChatWindow from './components/chatWindow/chatWindow.tsx'
+import card from './components/card/card.tsx'
+import Flashcard from './pages/Flashcard';
+
+
+
 
 
 function App() { 
@@ -20,6 +25,7 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/chat" element={<Chat/>} /> {/* Placeholder for Chat page */}
           <Route path="/chat-window" element={<ChatWindow />} /> {/* Placeholder for ChatWindow */}
+          <Route path="/Flashcard" element={<Flashcard />} /> {/* Placeholder for Flashcard */}
           {/* Add more routes as needed */}
         </Routes>
       </div>

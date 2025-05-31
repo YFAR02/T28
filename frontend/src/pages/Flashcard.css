@@ -1,0 +1,94 @@
+@import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
+
+.flashcard-page {
+  background-color: #1c1440;
+  color: white;
+  font-family: 'VT323', monospace;
+  min-height: 100vh;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.top-bar {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-size: 28px;
+  background: linear-gradient(to right, #f4c3c3, #cea8f2);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.nav-icons {
+  display: flex;
+  gap: 8px;
+}
+
+
+
+.icon.lime {
+  background-color: #d4f44c;
+}
+
+.card-container {
+  display: flex;
+  align-items: center;
+  margin-top: 60px;
+  gap: 20px;
+}
+
+.arrow {
+  background: none;
+  border: none;
+  font-size: 36px;
+  color: white;
+  cursor: pointer;
+}
+
+.view-all-btn {
+  background-color: #f06c9b;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  margin-top: 20px;
+  font-size: 12px;
+  font-weight: bold;
+  border-radius: 6px;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+.nav-icons {
+  display: flex;
+  gap: 25px;
+  margin-right: 20px;
+}
+
+.nav-icon-button {
+  background-color: transparent;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  height: 30px;
+  width: 30px;;
+}
+
+.nav-icon {
+  width: 30px;
+  height: 30px;
+  background-color: #ffffff30;
+  border-radius: 50%;
+  padding: 6px;
+  transition: transform 0.2s, background-color 0.2s;
+}
+
+.nav-icon:hover {
+  background-color: #ffffff50;
+  transform: scale(1.1);
+}
+
