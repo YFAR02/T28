@@ -133,7 +133,8 @@ class ChatView(APIView):
     permission_classes = [IsAuthenticated]
 
     def post(self, request, *args, **kwargs):
-        # Accept note content as text or file
+        print("DEBUG: request.content_type =", request.content_type)
+        print("DEBUG: request.data =", request.data)
         chat_content = request.data.get('content')
         if not chat_content and 'file' in request.FILES:
             chat_content = request.FILES['file'].read().decode('utf-8')
@@ -145,9 +146,8 @@ class ChatView(APIView):
             model="gemini-2.0-flash",
             contents=[chat_content],
         )
-        
-        # Assuming response contains the chat response text
+
         chat_response_text = response.text if hasattr(response, 'text') else response
 
-        return Response({'response': chat_response_text}, status=status.HTTP_200_OK)
+        return Response(chat_response_text, status=status.HTTP_200_OK)
 
