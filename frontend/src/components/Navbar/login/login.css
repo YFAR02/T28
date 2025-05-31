@@ -47,3 +47,9 @@
 .login-button:hover {
   background-color: #0056b3;
 }
+
+.login-footer {
+  margin-top: 15px;
+  font-size: 14px;
+  color: #555;
+}

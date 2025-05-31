@@ -7,6 +7,7 @@ import Login from './components/Navbar/login/login.tsx'
 import Chat from './pages/Chat.tsx'
 import ChatWindow from './components/chatWindow/chatWindow.tsx'
 
+
 function App() { 
   return (
     <Router>
