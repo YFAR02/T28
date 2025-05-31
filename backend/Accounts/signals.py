@@ -4,12 +4,12 @@ from django_rest_passwordreset.signals import reset_password_token_created
 
 def custom_password_reset_email(sender, instance, reset_password_token, *args, **kwargs):
     # Customize subject and message as needed
-    subject = "Your Custom Password Reset Subject"
+    subject = "Password Reset"
     message = (
         f"Hello,\n\n"
         f"Use the following token to reset your password: {reset_password_token.key}\n\n"
         f"Or click the link below:\n"
-        f"token:{reset_password_token.key}\n\n"
+        f"ocalhost:8000/accounts/password_reset/?token={reset_password_token.key}\n\n"
         f"Thank you!"
     )
     send_mail(
