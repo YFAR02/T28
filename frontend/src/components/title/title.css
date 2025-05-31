@@ -9,4 +9,5 @@ background: linear-gradient(135deg,
   -webkit-text-fill-color: transparent;
   background-clip: text; /* for Firefox */
   font-weight: bold;
+  margin: 0;
 }
