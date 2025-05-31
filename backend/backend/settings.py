@@ -9,7 +9,6 @@ https://docs.djangoproject.com/en/5.1/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.1/ref/settings/
 """
-
 from pathlib import Path
 from dotenv import load_dotenv
 
@@ -18,7 +17,6 @@ load_dotenv()  # This loads environment variables from a .env file
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
-
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.1/howto/deployment/checklist/
@@ -30,7 +28,6 @@ SECRET_KEY = 'django-insecure-m90%=(c!+p$_$nbddbiz_2hspv&2)20%y+d51g+kstrixs8xyu
 DEBUG = os.environ.get("DJANGO_DEBUG", "True") == "True"
 
 ALLOWED_HOSTS = os.environ.get("DJANGO_ALLOWED_HOSTS").split(",")
-
 
 # Application definition
 
@@ -44,6 +41,10 @@ INSTALLED_APPS = [
     'corsheaders',
     'rest_framework',
     'oauth2_provider',
+    'rest_framework.authtoken',
+    'django_rest_passwordreset',
+    
+    # Custom apps
     'Core',
     'Accounts',
 ]
@@ -54,7 +55,6 @@ CORS_ORIGIN_WHITELIST = [
     'http://0.0.0.0:3000'
 ]
 # CORS_ORIGIN_ALLOW_ALL = True #Change Later!!!!!
-
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -94,7 +94,6 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'backend.wsgi.application'
-
 
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
@@ -160,7 +159,6 @@ USE_I18N = True
 
 USE_TZ = True
 
-
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
 
@@ -171,3 +169,11 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = os.environ.get("EMAIL_HOST_USER")
+EMAIL_HOST_PASSWORD = os.environ.get("EMAIL_HOST_PASSWORD")
+DEFAULT_FROM_EMAIL = os.environ.get("EMAIL_HOST_USER")
