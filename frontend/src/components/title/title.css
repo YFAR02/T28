@@ -1,0 +1,12 @@
+.gradient-title {
+background: linear-gradient(135deg, 
+    rgb(244,195,195) 25%, 
+    rgb(215,178,255) 50%, 
+    rgb(229,160,246) 75%, 
+    rgb(229,160,246) 100%
+);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text; /* for Firefox */
+  font-weight: bold;
+}

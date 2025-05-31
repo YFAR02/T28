@@ -31,7 +31,11 @@ const Register: React.FC = () => {
           className="register-input"
           name="confirmPassword"
         />
-        <button type="submit" className="register-button">
+        <button
+          type="button"
+          className="register-button"
+          onClick={() => window.location.href = "/chat"}
+        >
           Register
         </button>
       </form>
