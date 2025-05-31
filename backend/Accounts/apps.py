@@ -6,4 +6,4 @@ class AccountsConfig(AppConfig):
     name = 'Accounts'
 
     def ready(self):
-        import Accounts.signals
+        import Accounts.signals  # This imports signals.py and registers your handlers
