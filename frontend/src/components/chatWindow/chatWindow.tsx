@@ -87,18 +87,12 @@ const ChatWindow: React.FC = () => {
           onKeyDown={handleInputKeyDown}
           disabled={loading}
         />
-        <button className="chat-send-btn" onClick={handleSend} disabled={loading || !input.trim()}>
-          Send
-        </button>
-        {error && <div className="chat-error">{error}</div>}
-        <input type="text" className="chat-input" placeholder="Start typing..." />
         <div className="chat-footer">
-          <div className='stack'>
-            <span className="token-count">43 sources</span>
-            <span className="source-label">Hover over a prompt to see which source it came from.</span>
-          </div>
-          <img src="send.png" alt="Send" className="send-button" />
+          <button className="chat-send-btn" onClick={handleSend} disabled={loading || !input.trim()}>
+            <img src="send.png" alt="Send" className="send-button" />
+          </button>
         </div>
+        {error && <div className="chat-error">{error}</div>}
       </div>
     </div>
   );

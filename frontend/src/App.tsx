@@ -6,7 +6,7 @@ import Register from './pages/register.tsx'
 import Login from './components/login/login.tsx'
 import Chat from './pages/Chat.tsx'
 import ChatWindow from './components/chatWindow/chatWindow.tsx'
-import card from './components/card/card.tsx'
+// import card from './components/card/card.tsx'
 import Flashcard from './pages/Flashcard';
 
 
@@ -32,7 +32,7 @@ function App() {
           <Route path="/forgot" element={<ForgotPassword />} />
           <Route path="/reset-password" element={<ResetPassword />} />
           {/* Add more routes as needed */}
-          <Route path="/card" element={<Card />} /> {/* Placeholder for card */}
+          <Route path="/exam" element={<Exam />} /> {/* Placeholder for Studio */}
           <Route path="/flashcard" element={<Flashcard />} /> {/* Placeholder for Flashcard */}
           <Route path="/logout" element={<Logout />} />
           <Route path="/forgot-password" element={<ForgotPassword />} />
