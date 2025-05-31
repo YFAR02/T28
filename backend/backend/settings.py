@@ -43,6 +43,9 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'corsheaders',
     'rest_framework',
+    'oauth2_provider',
+    'Core',
+    'Accounts',
 ]
 
 CORS_ORIGIN_WHITELIST = [
@@ -50,6 +53,8 @@ CORS_ORIGIN_WHITELIST = [
     'http://127.0.0.1:3000',
     'http://0.0.0.0:3000'
 ]
+# CORS_ORIGIN_ALLOW_ALL = True #Change Later!!!!!
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -60,8 +65,15 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'corsheaders.middleware.CorsMiddleware',
-    'django.middleware.common.CommonMiddleware'
+    'django.middleware.common.CommonMiddleware',
+    'corsheaders.middleware.CorsMiddleware'
 ]
+
+# REST_FRAMEWORK = {
+#     'DEFAULT_AUTHENTICATION_CLASSES': (
+#         'rest_framework_simplejwt.authentication.JWTAuthentication',
+#     ),
+# }
 
 ROOT_URLCONF = 'backend.urls'
 

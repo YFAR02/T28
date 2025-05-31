@@ -18,10 +18,13 @@ from django.conf import settings
 from django.conf.urls.static import static
 from django.contrib import admin
 from django.urls import path, include
+from oauth2_provider import urls as oauth2_urls
 from .views import index
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('o/', include(oauth2_urls)),
+    path('accounts/', include('Accounts.urls')),
     path('', index), # Default view  
 ]
 

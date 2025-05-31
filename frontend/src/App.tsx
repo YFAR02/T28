@@ -6,6 +6,7 @@ import Register from './pages/register.tsx'
 // import Navbar from './components/Navbar/Navbar'
 import Chat from './pages/Chat.tsx'
 
+
 function App() { 
   return (
     <Router>
@@ -17,6 +18,7 @@ function App() {
           <Route path="/register" element={<Register />} /> {/* ✅ real page */}
           <Route path="/login" element={<div>Login Page</div>} />
           <Route path="/chat" element={<Chat/>  } />
+
         </Routes>
       </div>
     </Router>
