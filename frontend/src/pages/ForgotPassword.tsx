@@ -2,12 +2,12 @@ import React from 'react';
 import AuthForm from '../components/auth/AuthForm';
 import './register.css';
 
-const Register: React.FC = () => {
+const ForgotPassword: React.FC = () => {
   return (
     <div className="register-container">
-      <AuthForm mode="register" />
+      <AuthForm mode="forgot" />
     </div>
   );
 };
 
-export default Register;
+export default ForgotPassword;

@@ -7,7 +7,7 @@
   display: flex;
   flex-direction: column;
   gap: 12px;
-  border: 3px solid white;
+  border: 2px solid white;
 }
 
 .sources-header {
@@ -22,7 +22,7 @@
   font-weight: bold;
   padding: 4px 12px;
   border-radius: 12px;
-  font-size: 16px;
+  font-size: 1.2rem;
 }
 
 .actions {
@@ -48,7 +48,7 @@
 }
 
 .sources-list {
-  max-height: 400px;
+  max-height: 65vh;
   overflow-y: auto;
   padding-right: 4px;
 }

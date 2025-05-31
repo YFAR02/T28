@@ -25,9 +25,9 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('o/', include(oauth2_urls)),
     path('accounts/', include('Accounts.urls')),
-    path('notes/', include('Core.urls')),
+    path('core/', include('Core.urls')),
     path('', index), # Default view  
-]
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 # if settings.DEBUG:
 #     urlpatterns + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

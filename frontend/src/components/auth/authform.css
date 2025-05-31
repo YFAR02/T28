@@ -1,0 +1,66 @@
+/* AuthForm styling to match the pretty login page */
+/* .authform-container {
+  width: 300px;
+  margin: 50px auto;
+  padding: 20px;
+  border-radius: 12px;
+  background-color: #f5f5f5;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+} */
+
+.authform-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.authform-input {
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  outline: none;
+  transition: border-color 0.2s ease-in-out;
+}
+
+.authform-input:focus {
+  border-color: #007bff;
+}
+
+.authform-button {
+  padding: 10px;
+  font-size: 16px;
+  border: none;
+  background-color: #007bff;
+  color: white;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.authform-button:hover {
+  background-color: #0056b3;
+}
+
+.authform-footer {
+  margin-top: 15px;
+  font-size: 14px;
+  color: #555;
+}
+
+.authform-error {
+  color: #d32f2f;
+  background: #ffeaea;
+  border-radius: 6px;
+  padding: 8px;
+  margin-bottom: 8px;
+}
+
+.authform-success {
+  color: #388e3c;
+  background: #eaffea;
+  border-radius: 6px;
+  padding: 8px;
+  margin-bottom: 8px;
+}

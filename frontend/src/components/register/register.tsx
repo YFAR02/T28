@@ -1,5 +1,5 @@
 import React from 'react';
-import AuthForm from '../components/auth/AuthForm';
+import AuthForm from '../auth/AuthForm';
 import './register.css';
 
 const Register: React.FC = () => {

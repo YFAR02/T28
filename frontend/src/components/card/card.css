@@ -1,0 +1,33 @@
+.card {
+  background-color: #d7b2ff;
+  color: #1b143e;
+  border-radius: 18px;
+  padding: 50px;
+  width: 420px;
+  height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
+}
+
+.card-text {
+  font-size: 2rem;
+  text-align: center;
+  font-weight: bold;
+}
+
+.corner-icon {
+  position: absolute;
+  bottom: 12px;
+  right: 12px;
+  font-size: 24px;
+}
+
+.home {
+  width: 100%;
+  min-height: 100vh;
+  font-family: 'VT323', monospace;
+  color: white;
+}

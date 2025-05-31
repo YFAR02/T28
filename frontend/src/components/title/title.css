@@ -9,4 +9,7 @@ background: linear-gradient(135deg,
   -webkit-text-fill-color: transparent;
   background-clip: text; /* for Firefox */
   font-weight: bold;
+  margin: 0;
+  font-size: 3.2rem;
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
 }
