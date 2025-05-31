@@ -1,6 +1,16 @@
 import React, { useState } from 'react';
 import './chatWindow.css';
 
+function formatAIText(text: string) {
+  // Try to pretty-print JSON, else return as plain text with line breaks
+  try {
+    const obj = JSON.parse(text);
+    return <pre style={{ whiteSpace: 'pre-wrap' }}>{JSON.stringify(obj, null, 2)}</pre>;
+  } catch {
+    return <pre style={{ whiteSpace: 'pre-wrap' }}>{text}</pre>;
+  }
+}
+
 const ChatWindow: React.FC = () => {
   const [messages, setMessages] = useState<{ sender: 'user' | 'ai', text: string }[]>([]);
   const [input, setInput] = useState('');
@@ -62,7 +72,7 @@ const ChatWindow: React.FC = () => {
       <div className="chat-messages">
         {messages.map((msg, idx) => (
           <div key={idx} className={`chat-message ${msg.sender}`}>
-            {msg.text}
+            {msg.sender === 'ai' ? formatAIText(msg.text) : <span>{msg.text}</span>}
           </div>
         ))}
         {loading && <div className="chat-message ai">Thinking...</div>}
