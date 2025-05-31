@@ -27,13 +27,6 @@
   -webkit-text-fill-color: transparent;
 }
 
-.nav-icons {
-  display: flex;
-  gap: 8px;
-}
-
-
-
 .icon.lime {
   background-color: #d4f44c;
 }

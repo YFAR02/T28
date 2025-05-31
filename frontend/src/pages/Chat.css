@@ -14,3 +14,14 @@
   flex-direction: column;
   /* background-color: #1b143e; */
 }
+
+.chat-header{
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  /* background-color: #bfb7dd; */
+  /* color: #2c2043; */
+  /* font-weight: bold; */
+}

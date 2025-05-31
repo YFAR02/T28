@@ -1,11 +1,13 @@
 @import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
 
 .question-card {
+  background-color: #CEB3D2;
   margin-bottom: 40px;
-  background-color: transparent;
+  /* background-color: transparent; */
   font-family: 'VT323', monospace;
-  color: white;
+  color: black;
   text-align: left;
+  padding: 16px 32px;
 }
 
 .question-label {
@@ -31,6 +33,7 @@
   list-style: none;
   padding: 0;
   margin: 0;
+  /* color: black; */
 }
 
 .choice {
@@ -41,15 +44,16 @@
   gap: 10px;
   padding-left: 20px;
   position: relative;
+  color: black;
 }
 
-.choice::before {
+/* .choice::before {
   content: "•";
   color: white;
   font-size: 18px;
   position: absolute;
   left: 0;
-}
+} */
 
 .correct {
   font-weight: bold;
