@@ -6,7 +6,7 @@ import Register from './pages/register.tsx'
 import Login from './components/login/login.tsx'
 import Chat from './pages/Chat.tsx'
 import ChatWindow from './components/chatWindow/chatWindow.tsx'
-import card from './components/card/card.tsx'
+import Card from './components/card/card.tsx'
 import Flashcard from './pages/Flashcard';
 
 
