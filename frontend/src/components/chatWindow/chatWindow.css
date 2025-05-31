@@ -117,3 +117,8 @@
   width: 30px;
   height: 30px;
 }
+
+.chat-messages{
+  max-height: 60vh;
+  overflow-y: auto;
+}
