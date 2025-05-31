@@ -24,7 +24,8 @@ from .views import index
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('o/', include(oauth2_urls)),
-    path('accounts/', include('Accounts.urls')),  # Include accounts app URLs
+    path('accounts/', include('Accounts.urls')),
+    path('notes/', include('Core.urls')),
     path('', index), # Default view  
 ]
 

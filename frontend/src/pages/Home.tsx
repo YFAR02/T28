@@ -1,5 +1,5 @@
 import React from 'react';
-import '../components/Navbar/login/login.css'; 
+import '../components/login/login.css'; 
 import Login from '../components/login/login'; 
 
 const Home: React.FC = () => {
