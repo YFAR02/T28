@@ -1,16 +1,31 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './Sources.css';
-//import { FaFilePdf } from 'react-icons/fa';
-// import { FiPlus, FiSearch } from 'react-icons/fi';
-
-const mockSource = Array(15).fill('CSC448-LECTURE05.PDF');
 
 const Sources: React.FC = () => {
-  const [selected, setSelected] = useState<boolean[]>(Array(mockSource.length).fill(false));
+  const [sources, setSources] = useState<string[]>([]);
+  const [selected, setSelected] = useState<boolean[]>([]);
+
+  useEffect(() => {
+    const fetchSources = async () => {
+      const token = localStorage.getItem('access_token');
+      const response = await fetch('http://localhost:8000/core/my-files/', {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
+      if (response.ok) {
+        const data = await response.json();
+        // Assuming each file object has a 'filename' property
+        setSources(data.map((file: any) => file.filename));
+        setSelected(Array(data.length).fill(false));
+      }
+    };
+    fetchSources();
+  }, []);
 
   const toggleAll = () => {
     const allSelected = selected.every(Boolean);
-    setSelected(Array(mockSource.length).fill(!allSelected));
+    setSelected(Array(sources.length).fill(!allSelected));
   };
 
   const toggleOne = (index: number) => {
@@ -30,9 +45,9 @@ const Sources: React.FC = () => {
       </div>
 
       <div className="sources-list">
-        {mockSource.map((source, index) => (
+        {sources.map((source, index) => (
           <div className="source-item" key={index}>
-           <img src="source.png" alt="File Icon" className="file-icon" /> 
+            <img src="source.png" alt="File Icon" className="file-icon" />
             <span className="filename">{source}</span>
             <input
               type="checkbox"

@@ -7,7 +7,7 @@ import Login from './components/login/login.tsx'
 import Chat from './pages/Chat.tsx'
 import ChatWindow from './components/chatWindow/chatWindow.tsx'
 import Exam from './pages/exam.tsx' // Adjust the path if your Exam component is located elsewhere
-// import card from './components/card/card.tsx'
+// import Card from './components/card/card.tsx'
 import Flashcard from './pages/Flashcard';
 import Logout from './pages/Logout.tsx'
 import ForgotPassword from './pages/ForgotPassword.tsx'

@@ -1,12 +1,13 @@
 from django.db import models
+from django.contrib.auth import get_user_model
 
 def user_directory_path(instance, filename):
     # file will be uploaded to MEDIA_ROOT/user_<id>/<filename>
-    return 'user_{0}/{1}'.format(instance.id, filename)
+    return f'user_{instance.user.id}/{filename}'
 
-# Create your models here
 class Note(models.Model):
-    title = models.CharField(max_length=200)
+    user = models.ForeignKey(get_user_model(), on_delete=models.CASCADE)
+    file = models.FileField(upload_to=user_directory_path, null=True, blank=True)
     content = models.TextField()
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
