@@ -91,6 +91,14 @@ const ChatWindow: React.FC = () => {
           Send
         </button>
         {error && <div className="chat-error">{error}</div>}
+        <input type="text" className="chat-input" placeholder="Start typing..." />
+        <div className="chat-footer">
+          <div className='stack'>
+            <span className="token-count">43 sources</span>
+            <span className="source-label">Hover over a prompt to see which source it came from.</span>
+          </div>
+          <img src="send.png" alt="Send" className="send-button" />
+        </div>
       </div>
     </div>
   );
