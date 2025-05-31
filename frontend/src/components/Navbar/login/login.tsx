@@ -21,6 +21,12 @@ const Login: React.FC = () => {
         <button type="submit" className="login-button">
           Sign In
         </button>
+        <p className="login-footer">
+          Don't have an account? <a href="/register">Register</a>
+        </p>
+
+       
+          Register
       </form>
     </div>
   );

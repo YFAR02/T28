@@ -3,8 +3,9 @@ import './App.css'
 import Home from './pages/Home.tsx'
 import Songs from './pages/Songs'
 import Register from './pages/register.tsx'
-import Navbar from './components/Navbar/Navbar'
-import Login from './components/Navbar/login/login.tsx'
+// import Navbar from './components/Navbar/Navbar'
+import Chat from './pages/Chat.tsx'
+
 
 function App() { 
   return (
@@ -15,8 +16,9 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/songs" element={<Songs />} />
           <Route path="/register" element={<Register />} /> {/* ✅ real page */}
-          <Route path="/login" element={<Login />} />
-          {/* Add more routes as needed */}
+          <Route path="/login" element={<div>Login Page</div>} />
+          <Route path="/chat" element={<Chat/>  } />
+
         </Routes>
       </div>
     </Router>
