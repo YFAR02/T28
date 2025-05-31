@@ -1,0 +1,85 @@
+.chat-container {
+  width: 360px;
+  background-color: #2c2043;
+  color: white;
+  padding: 16px;
+  border-radius: 14px;
+  font-family: 'Segoe UI', sans-serif;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.chat-header {
+  text-align: left;
+}
+
+.chat-tab {
+  background-color: #bfb7dd;
+  color: #2c2043;
+  font-weight: bold;
+  padding: 4px 12px;
+  border-radius: 12px;
+  font-size: 13px;
+}
+
+.chat-title-section {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.chat-title {
+  font-size: 20px;
+  font-weight: 700;
+  margin: 0;
+  color: white;
+  text-transform: lowercase;
+}
+
+.chat-description {
+  font-size: 13px;
+  color: #cfcbdc;
+  line-height: 1.4;
+  overflow-y: auto;
+  max-height: 200px;
+}
+
+.chat-input-section {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  background-color: #3e2f5e;
+  padding: 12px;
+  border-radius: 12px;
+}
+
+.chat-input {
+  padding: 10px;
+  font-size: 14px;
+  border: none;
+  border-radius: 8px;
+  width: 100%;
+  background-color: #fff;
+  color: #333;
+  outline: none;
+}
+
+.chat-footer {
+  display: flex;
+  flex-direction: column;
+  font-size: 10px;
+  color: #aaa;
+  margin-top: 4px;
+}
+
+.token-count {
+  align-self: flex-end;
+  color: #aaa;
+  margin-bottom: 4px;
+}
+
+.source-label {
+  font-style: italic;
+  text-align: center;
+}
