@@ -10,4 +10,6 @@ background: linear-gradient(135deg,
   background-clip: text; /* for Firefox */
   font-weight: bold;
   margin: 0;
+  font-size: 3.2rem;
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
 }
