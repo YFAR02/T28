@@ -25,7 +25,7 @@ const ChatWindow: React.FC = () => {
     try {
       const token = localStorage.getItem('access_token');
       const payload = { content: input }; // Always send a valid JSON object
-      console.log("DEBUG: Sending payload to backend:", payload); // Add this line
+      //console.log("DEBUG: Sending payload to backend:", payload); // Add this line
       const response = await fetch('http://localhost:8000/core/chat/', {
         method: 'POST',
         headers: {
@@ -35,7 +35,7 @@ const ChatWindow: React.FC = () => {
         body: JSON.stringify(payload), // Ensure this is a stringified JSON
       });
       const data = await response.json();
-      console.log("DEBUG: Received response from backend:", data); // Log the backend response
+      //console.log("DEBUG: Received response from backend:", data); // Log the backend response
       let aiText = '';
       if (typeof data === 'string') {
         aiText = data;
