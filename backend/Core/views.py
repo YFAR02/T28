@@ -133,8 +133,8 @@ class ChatView(APIView):
     permission_classes = [IsAuthenticated]
 
     def post(self, request, *args, **kwargs):
-        print("DEBUG: request.content_type =", request.content_type)
-        print("DEBUG: request.data =", request.data)
+        # print("DEBUG: request.content_type =", request.content_type)
+        # print("DEBUG: request.data =", request.data)
         chat_content = request.data.get('content')
         if not chat_content and 'file' in request.FILES:
             chat_content = request.FILES['file'].read().decode('utf-8')
