@@ -1,0 +1,85 @@
+.sources-container {
+  width: 280px;
+  color: white;
+  padding: 16px;
+  border-radius: 14px;
+  font-family: 'Segoe UI', sans-serif;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  border: 3px solid white;
+}
+
+.sources-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.title {
+  background-color: #d6b0db;
+  color: #2c2043;
+  font-weight: bold;
+  padding: 4px 12px;
+  border-radius: 12px;
+  font-size: 16px;
+}
+
+.actions {
+  display: flex;
+  gap: 8px;
+}
+
+.icon {
+  background-color: #90d4c5;
+  border-radius: 50%;
+  padding: 4px;
+  font-size: 16px;
+  color: #2c2043;
+  cursor: pointer;
+}
+
+.sources-select-all {
+  display: flex;
+  justify-content: space-between;
+  font-size: 12px;
+  color: #aaa;
+  padding: 4px 0;
+}
+
+.sources-list {
+  max-height: 400px;
+  overflow-y: auto;
+  padding-right: 4px;
+}
+
+.source-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  margin: 6px 0;
+  font-size: 13px;
+}
+
+.pdf-icon {
+  color: #ff5c8a;
+  font-size: 16px;
+}
+
+.filename {
+  flex: 1;
+  text-align: left;
+}
+
+.file-icon {
+  color: #ff5c8a;
+height : 30px;
+width : auto; }
+
+.add-icon {
+  background-color: #90d4c5;
+  height : 30px;
+  width : auto;
+  border-radius: 100%;
+}
