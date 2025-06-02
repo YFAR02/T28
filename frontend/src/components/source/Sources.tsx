@@ -3,7 +3,7 @@ import './Sources.css';
 //import { FaFilePdf } from 'react-icons/fa';
 // import { FiPlus, FiSearch } from 'react-icons/fi';
 
-const mockSource = Array(15).fill('CSC448-LECTURE05.PDF');
+const mockSource = Array.from({ length: 15 }, (_, i) => `CSC448-LECTURE${String(i + 1).padStart(2, '0')}.PDF`);
 
 const Sources: React.FC = () => {
   const [selected, setSelected] = useState<boolean[]>(Array(mockSource.length).fill(false));
